@@ -1,0 +1,149 @@
+%!TEX program=lualatex
+\documentclass[portrait,a0paper, 25pt]{tikzposter}
+% A0: 33.1 x 46.8 in
+% Evolution 2016: Posters can be a maximum of 1.2 m x 1.2 m (4 ft x 4 ft)
+\usepackage[american]{babel}
+\usepackage{luatextra} % also loads fixltx2e, fontspec, xunicode
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{unicode-math}
+
+\usepackage{enumitem}
+
+\usepackage[default]{sourcesanspro}
+\usepackage{sourcecodepro}
+\defaultfontfeatures[\ttfamily]{Ligatures=Common}
+\setmonofont{SourceCodePro}
+\setmathfont{TeX Gyre Pagella Math}
+
+% \usepackage[sort]{natbib}
+% \usepackage{natbibspacing}
+
+\usepackage[singlespacing]{setspace}
+\usepackage{microtype}
+\usepackage{multicol,multirow}
+% \usepackage{parskip}
+\usepackage{pgf,tikz}
+
+\definecolor{colorR}{RGB}{228,26,28}
+\definecolor{colorG}{RGB}{77,175,74}
+\definecolor{colorB}{RGB}{55,126,184}
+
+\definecolor{BoxCol}{cmyk}{0,1,0.36,0.37}
+
+\usepackage{lipsum}
+\input{poster_template.tex}
+\usetitlestyle{FilledLine}
+\useblockstyle{MinimalThick}
+\usecolorstyle{NAU}
+
+\raggedright
+\hyphenpenalty=10000
+\settitle{%
+\color{white}%
+}
+\makeatletter
+\def\TP@titlegraphictotitledistance{-8cm}
+\settitle{ \centering \vbox{
+\@titlegraphic \\ [\TP@titlegraphictotitledistance]
+\centering
+\color{white} {\bfseries\fontsize{4cm}{4cm}\selectfont{} \@title \par}
+\vspace*{1.5em}
+{\LARGE \@author \par} \vspace*{1em} {\LARGE \@institute}
+}}
+\makeatother
+
+
+\title{\parbox{0.5\linewidth}{\centering Tikz Poster Template Example}}
+\author{Author One, Author Two, and Author Three}
+\institute{The School of Informatics, Computing, and Cyber Systems\\
+Northern Arizona University, Flagstaff, AZ}
+
+
+
+\titlegraphic{
+\begin{minipage}[c]{0.17\textwidth}
+    \centering
+\includegraphics[width=13.9cm,height=7.07cm]{./NAU_logo.pdf}
+\end{minipage}
+ \hfill
+\begin{minipage}[c]{0.17\textwidth}
+    \centering
+    \includegraphics[width=13.9cm,height=7.07cm]{./NAU_logo.pdf}
+\end{minipage}
+}
+
+\begin{document}
+\maketitle
+
+\begin{columns}
+\column{0.4}
+
+\makeatletter
+\newcommand\SemiLarge{\@setfontsize\SemiLarge{10}{10}}
+\makeatother
+
+\block{\Huge Abstract}{\Large\setlength{\parskip}{0.5em}
+\lipsum[1]
+
+}
+
+
+
+
+\block{\Huge Background}{\Large\setlength{\parskip}{0.5em}
+\lipsum[2-3]
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% 2nd Column
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\column{0.6}
+
+\block{\Huge Model}{\Large\setlength{\parskip}{0.5em}
+\LARGE
+\begin{equation}
+\begin{array}{l}
+\displaystyle \int 1 = x + C\\
+\displaystyle \int x = \frac{x^2}{2} + C \\
+\displaystyle \int x^2 = \frac{x^3}{3} + C
+\end{array}
+\label{eq:xdef}
+\end{equation}
+} %End Model
+
+
+
+
+\block{\Huge Results}{\Large\setlength{\parskip}{0.5em}
+\includegraphics[width=0.5\textwidth]{spurious_correlations.png}
+}
+
+\block{\Huge Discussion	}{\Large\setlength{\parskip}{0.5em}
+\lipsum[2-4]
+}
+
+
+\end{columns}
+
+\begin{columns}
+
+\column{0.5}
+
+
+
+\block{Support}{\setlength{\parskip}{0.25em}
+This work was supported by ...
+}
+\column{0.5}
+\block{Acknowledgments}{\setlength{\parskip}{0.25em}
+\begin{itemize}[label={}]
+\item Name 1, Affiliation
+\item Name 2, Affiliation
+\item Name 3, Affiliation
+\end{itemize}
+
+}
+\end{columns}
+
+\end{document}

@@ -1,0 +1,77 @@
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}}
+
+\definecolorstyle{NAU}{
+    % Define default colors
+	\definecolor{colorOne}{HTML}{003466}
+	\definecolor{colorTwo}{HTML}{C3B8B2}
+	\definecolor{colorThree}{HTML}{FFD200}
+}{
+     % Background Colors
+    \colorlet{backgroundcolor}{colorTwo!55!white}
+    \colorlet{framecolor}{colorTwo}
+    % Title Colors
+    \colorlet{titlefgcolor}{colorThree}
+    \colorlet{titlebgcolor}{colorOne}
+    % Block Colors
+    \colorlet{blocktitlebgcolor}{colorOne}
+    \colorlet{blocktitlefgcolor}{white}
+    \colorlet{blockbodybgcolor}{white}
+    \colorlet{blockbodyfgcolor}{black}
+    % Innerblock Colors
+    \colorlet{innerblocktitlebgcolor}{colorOne!80!black}
+    \colorlet{innerblocktitlefgcolor}{colorOne}
+    \colorlet{innerblockbodybgcolor}{white}
+    \colorlet{innerblockbodyfgcolor}{black}
+    % Note colors
+    \colorlet{notefgcolor}{black}
+    \colorlet{notebgcolor}{colorThree}
+    \colorlet{notefrcolor}{colorThree}
+ }
+
+
+\makeatletter
+\definetitlestyle{FilledLine}{
+    width=\paperwidth, roundedcorners=0, linewidth=0pt, innersep=1.8cm,
+    titletotopverticalspace=0mm, titletoblockverticalspace=30mm,
+    titlegraphictotitledistance=6pt, titletextscale=1
+}{
+   \draw[draw=none, fill=titlebgcolor]%
+   (\titleposleft,\titleposbottom) rectangle (\titleposright,\titlepostop); %
+   \draw[draw=none, fill=titlefgcolor]%
+   (\titleposleft,\titleposbottom - 0.1*\titleheight) rectangle (\titleposright, \titleposbottom); %
+  }
+\makeatother
+
+
+\makeatletter
+\defineblockstyle{MinimalThick}{
+    titlewidthscale=1, bodywidthscale=1, titleleft,
+    titleoffsetx=0pt, titleoffsety=0pt, bodyoffsetx=0pt, bodyoffsety=0pt,
+    bodyverticalshift=0pt, roundedcorners=0, linewidth=0.7cm,
+    titleinnersep=1cm, bodyinnersep=1cm
+}{
+    \begin{scope}[line width=\blocklinewidth, rounded corners=\blockroundedcorners]
+       \ifBlockHasTitle %
+           \draw[draw=none, fill=blockbodybgcolor]
+               (blockbody.south west) rectangle (blockbody.north east);
+           \draw[draw=none, fill=blocktitlebgcolor]
+               (blocktitle.south west) rectangle (blocktitle.north east);
+           \draw[color=colorThree]
+               (blockbody.north west) -- (blockbody.north east);%
+       \else
+             \draw[draw=none, fill=blockbodybgcolor]
+                 (blockbody.south west) rectangle (blockbody.north east);
+        \fi
+    \end{scope}
+}
+
+\makeatother
