@@ -1,5 +1,5 @@
 %!TEX program=lualatex
-\documentclass[portrait,a0paper, 25pt]{tikzposter}
+\documentclass[portrait,a0paper, 25pt, blockverticalspace=3mm, subcolspace=1mm, colspace=3mm]{tikzposter}% Adjust column spacing and block spacing here
 % A0: 33.1 x 46.8 in
 % Evolution 2016: Posters can be a maximum of 1.2 m x 1.2 m (4 ft x 4 ft)
 \usepackage[american]{babel}
@@ -43,20 +43,20 @@
 \color{white}%
 }
 \makeatletter
-\def\TP@titlegraphictotitledistance{-8cm}
+\def\TP@titlegraphictotitledistance{-6cm}
 \settitle{ \centering \vbox{
 \@titlegraphic \\ [\TP@titlegraphictotitledistance]
 \centering
-\color{white} {\bfseries\fontsize{4cm}{4cm}\selectfont{} \@title \par}
-\vspace*{1.5em}
-{\LARGE \@author \par} \vspace*{1em} {\LARGE \@institute}
+\color{white} {\bfseries\fontsize{3cm}{3cm}\selectfont{} \@title \par}
+\vspace*{.8em}
+{\Large \@author \par} \vspace*{.7em} {\Large \@institute}
 }}
 \makeatother
 
 
 \title{\parbox{0.5\linewidth}{\centering Tikz Poster Template Example}}
-\author{Author One, Author Two, and Author Three}
-\institute{The School of Informatics, Computing, and Cyber Systems\\
+\author{Author One\textsuperscript{1}, Author Two\textsuperscript{1}, and Author Three\textsuperscript{1}}
+\institute{\textsuperscript{1}The School of Informatics, Computing, and Cyber Systems\\
 Northern Arizona University, Flagstaff, AZ}
 
 
@@ -64,12 +64,12 @@ Northern Arizona University, Flagstaff, AZ}
 \titlegraphic{
 \begin{minipage}[c]{0.17\textwidth}
     \centering
-\includegraphics[width=13.9cm,height=7.07cm]{./NAU_logo.pdf}
+\includegraphics[width=.7\textwidth]{./NAU_logo.pdf}
 \end{minipage}
  \hfill
 \begin{minipage}[c]{0.17\textwidth}
     \centering
-    \includegraphics[width=13.9cm,height=7.07cm]{./NAU_logo.pdf}
+    \includegraphics[width=.7\textwidth]{./NAU_logo.pdf}
 \end{minipage}
 }
 
@@ -116,6 +116,7 @@ Northern Arizona University, Flagstaff, AZ}
 
 
 \block{\Huge Results}{\Large\setlength{\parskip}{0.5em}
+\centering
 \includegraphics[width=0.5\textwidth]{spurious_correlations.png}
 }
 
@@ -145,5 +146,6 @@ This work was supported by ...
 
 }
 \end{columns}
+\node [above right,font=\footnotesize] at (bottomleft) {Name of Conference $\cdot$ Month $\cdot$ Year};
 
 \end{document}
